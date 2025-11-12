@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Store | Estoque</title>
+  <link rel="stylesheet" href="./css/estoque.css">
+  <link rel="stylesheet" href="./css/global.css">
+</head>
+<body>
+ <header class="navbar">
+  <a href="index.html" class="logo">Car <span>Store</span></a>
+    <button id="menu-toggle">☰</button>     <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="estoque.html" class="active">Estoque</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <header>
+      <h1>Nosso Estoque de Veículos</h1>     </header>
+
+    <section class="filtros-estoque">
+      <h2>Filtrar por:</h2>
+      <form id="filtroForm">
+        <select id="marca">
+          <option value="">Todas as marcas</option>
+          <option value="chevrolet">Chevrolet</option>
+          <option value="fiat">Fiat</option>
+          <option value="honda">Honda</option>
+        </select>
+
+        <select id="ano">
+          <option value="">Ano</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+        </select>
+        <input type="text" id="precoMin" placeholder="Preço mínimo (R$)" data-mask="money" >
+        <input type="text" id="precoMax" placeholder="Preço máximo (R$)" data-mask="money">
+        <button type="submit" class="btn">Aplicar Filtro</button>
+      </form>
+    </section>
+
+    <div id="aviso-filtro"></div>
+
+    <section class="veiculos-grid" id="veiculosGrid">
+      <!-- Exemplos de veículo -->
+      <div class="veiculo">
+    <img src="./assets/img/ferrari-frente.webp" alt="Laferrari 2024" class="rotate-90-clockwise">
+    <h3>Ferrari Laferrari 2017</h3>
+    <div class="veiculo-meta">
+        <span>Ano: 2017</span>
+        <span>KM: 15.000</span>
+    </div>
+    <p>R$ 5.788.900</p>
+  <a href="detalhes-veiculo.html?id=1" class="btn">Ver Detalhes</a></div>
+
+      <div class="veiculo">
+    <img src="./assets/img/g63-frente.webp" alt="Mercedes gm3 2023" class="rotate-90-clockwise">
+    <h3>Mercedes GM3 2023</h3>
+    <div class="veiculo-meta">
+        <span>Ano: 2023</span>
+        <span>KM: 15.000</span>
+    </div>
+    <p>R$ 2.000.000</p>
+    <a href="detalhes-veiculo.html?id=2" class="btn">Ver Detalhes</a>
+</div>
+<div class="veiculo">
+    <img src="./assets/img/mc-frente.webp" alt="McLaren Senna 2024" class="rotate-90-clockwise">
+    <h3>McLaren Senna 2024</h3>
+    <div class="veiculo-meta">
+        <span>Ano: 2024</span>
+        <span>KM: 15.000</span>
+    </div>
+    <p>R$ 7.000.000</p>
+    <a href="detalhes-veiculo.html?id=3" class="btn">Ver Detalhes</a>
+</div>
+<div class="veiculo">
+    <img src="./assets/img/Audi-frente.webp" alt="Audi R8 2015" class="rotate-90-clockwise">
+    <h3>Audi R8</h3>
+    <div class="veiculo-meta">
+        <span>Ano: 2015</span>
+        <span>KM: 15.000</span>
+    </div>
+    <p>R$ 500.000</p>
+    <a href="detalhes-veiculo.html?id=4" class="btn">Ver Detalhes</a>
+</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Car Store - Todos os direitos reservados</p>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="./js/estoque.js"></script>
+<script src="./js/global.js"></script>
+
+</body>
+</html>

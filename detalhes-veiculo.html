@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Veículo | Car Store</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/detalhes.css"> 
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">Car <span>Store</span></a>
+        <button id="menu-toggle">☰</button> 
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="detalhes-header">
+            <h1>Carregando Detalhes...</h1>
+        </div>
+
+        <section class="detalhes-container">
+            
+            <div class="veiculo-info-principal">
+                
+                <div class="galeria-imagens">
+                    <img src="" alt="Foto principal do veículo" class="imagem-principal">
+                    
+                    <div class="miniaturas">
+                    </div>
+                </div>
+
+                <div class="ficha-tecnica">
+                    <h2>Ficha Técnica e Especificações</h2>
+                    <ul class="especificacoes-lista">
+                    </ul>
+                </div>
+
+            </div>
+
+            <aside class="sidebar-contato">
+                <div class="bloco-preco">
+                    <p class="etiqueta-preco">Preço à vista</p>
+                    <span class="preco-final">R$ --.---</span>
+                </div>
+                
+                <div class="bloco-info-rapida">
+                </div>
+
+                <div class="form-agendamento">
+                    <h3>Agende seu Test-Drive</h3>
+                    <form id="formContatoDetalhes">
+                        <input type="text" placeholder="Seu Nome Completo" required>
+                        <input type="email" placeholder="Seu Email" required>
+                        <input type="tel" placeholder="Telefone (WhatsApp)" required>
+                        <textarea placeholder="Mensagem (opcional)"></textarea>
+                        <button type="submit" class="btn-agendar">Falar com Consultor</button>
+                    </form>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Car Store - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="./js/dados-veiculos.js"></script>
+    <script src="./js/detalhes.js"></script> 
+    <script src="./js/global.js"></script>
+
+</body>
+</html>

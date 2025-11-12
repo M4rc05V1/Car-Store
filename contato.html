@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Car Store</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/contato.css"> 
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">Car <span>Store</span></a>
+        <button id="menu-toggle">☰</button> 
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <header class="contato-header">
+            <h1>Fale Conosco</h1>
+            <p>Entre em contato para agendar uma visita, tirar dúvidas sobre veículos ou fazer uma proposta.</p>
+        </header>
+
+        <section class="contato-container">
+            <div class="bloco-formulario">
+                <h2>Envie sua Mensagem</h2>
+                <form id="formContato">
+                    <div class="form-grupo">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="telefone">Telefone (WhatsApp)</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="assunto">Assunto</label>
+                        <select id="assunto" name="assunto">
+                            <option value="duvida">Dúvidas Gerais</option>
+                            <option value="visita">Agendar Visita/Test-Drive</option>
+                            <option value="proposta">Proposta em um Veículo</option>
+                            <option value="avaliacao">Avaliação do seu Usado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem detalhada..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+            </div>
+            
+            <aside class="bloco-informacoes">
+                <div class="info-detalhe">
+                    <h3>Dados da Concessionária</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> **Endereço:** Rua Exemplo, 1234 - Centro, Cidade/UF</p>
+                    <p><i class="fas fa-phone"></i> **Telefone:** (11) 3333-4444</p>
+                    <p><i class="fab fa-whatsapp"></i> **WhatsApp:** (11) 98765-4321</p>
+                    <p><i class="fas fa-envelope"></i> **E-mail:** contato@carstore.com</p>
+                    <p><i class="fas fa-clock"></i> **Horário:** Seg - Sex, 8h às 18h | Sáb, 9h às 13h</p>
+                </div>
+
+                <div class="info-mapa">
+                    <h3>Nossa Localização</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150000.0!2d-47.0!3d-23.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQwJzE3LjkiUyA0N8KwMDgnMTguNCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Car Store - Todos os direitos reservados</p>
+    </footer>
+    <script src="./js/global.js"></script>
+    <script src="https://kit.fontawesome.com/SUA_CHAVE_DO_FONT_AWESOME.js" crossorigin="anonymous"></script> 
+    </body>
+</html>
