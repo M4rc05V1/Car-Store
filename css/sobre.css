@@ -1,240 +1,160 @@
-/* ================================================= */
-/* 1. Estilo do Header e Layout Principal */
-/* ================================================= */
+/* =============================================
+   SOBRE.CSS
+   ============================================= */
 
 .sobre-header {
     text-align: center;
-    padding: 50px 20px 40px;
-    background-color: var(--color-dark);
+    padding: 3.5rem 1.5rem 2.5rem;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .sobre-header h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     color: var(--color-accent);
-    margin-bottom: 10px;
-    font-size: 2.5rem;
+    margin-bottom: 0.6rem;
 }
 
 .sobre-header p {
-    color: var(--color-light);
-    font-size: 1.2rem;
+    color: var(--color-muted);
+    font-size: 1.05rem;
 }
 
-/* Container para a seção principal de história (texto + imagem) */
+/* ── História ────────────────────────────────── */
 .secao-historia {
     display: flex;
     align-items: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
+    gap: 3rem;
+    max-width: 1150px;
+    margin: 3.5rem auto;
+    padding: 0 1.5rem;
 }
 
-.historia-texto {
-    flex: 2; /* Ocupa 2/3 da largura */
+.historia-texto { flex: 2; }
+
+.historia-texto h2 {
+    color: var(--color-accent);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.historia-texto p {
+    color: var(--color-text);
+    margin-bottom: 0.9rem;
+    line-height: 1.7;
 }
 
 .historia-imagem {
-    flex: 1; /* Ocupa 1/3 da largura */
-    min-width: 300px;
+    flex: 1;
+    min-width: 280px;
 }
 
 .historia-imagem img {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
 }
 
-.secao-historia h2 {
-    color: var(--color-accent);
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-/* ================================================= */
-/* 2. Seção Missão, Visão e Valores (MVV) */
-/* ================================================= */
-
+/* ── MVV ─────────────────────────────────────── */
 .secao-mvv {
     display: flex;
-    justify-content: space-between;
-    gap: 25px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
+    gap: 1.5rem;
+    max-width: 1150px;
+    margin: 2rem auto 3.5rem;
+    padding: 0 1.5rem;
 }
 
 .mvv-card {
     flex: 1;
-    background-color: var(--color-dark);
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px var(--color-shadow);
+    background-color: var(--color-surface);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    text-align: center;
+    transition: border-color var(--transition);
 }
+
+.mvv-card:hover { border-color: var(--color-accent); }
 
 .mvv-card h3 {
     color: var(--color-accent);
-    margin-bottom: 15px;
-    font-size: 1.4rem;
+    margin-bottom: 0.9rem;
+    font-size: 1.15rem;
 }
+
+.mvv-card p,
+.mvv-card ul { color: var(--color-text); font-size: 0.93rem; line-height: 1.7; }
 
 .mvv-card ul {
     list-style: none;
-    padding: 0;
     text-align: left;
-    margin-top: 15px;
+    margin-top: 0.75rem;
 }
 
 .mvv-card li {
-    margin-bottom: 8px;
-    padding-left: 1.2em;
+    padding: 0.3rem 0 0.3rem 1.4rem;
     position: relative;
 }
 
-/* Estiliza os marcadores de lista */
-.mvv-card li:before {
-    content: "✔️";
+.mvv-card li::before {
+    content: "✔";
     position: absolute;
     left: 0;
     color: var(--color-accent);
+    font-size: 0.8rem;
+    top: 0.35rem;
 }
 
-/* ================================================= */
-/* 3. Seção Contato/Time */
-/* ================================================= */
-
+/* ── Contato/Time ────────────────────────────── */
 .secao-contato-time {
     text-align: center;
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 20px;
+    max-width: 1150px;
+    margin: 0 auto 4rem;
+    padding: 0 1.5rem;
 }
 
 .secao-contato-time h2 {
     color: var(--color-light);
-    margin-bottom: 30px;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
 }
 
 .contato-info {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 1.5rem;
 }
 
 .info-bloco {
-    background-color: var(--color-dark);
-    padding: 30px;
-    border-radius: 10px;
-    width: 45%;
-    box-shadow: 0 4px 10px var(--color-shadow);
+    flex: 1;
+    max-width: 420px;
+    background-color: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    text-align: left;
 }
 
 .info-bloco h4 {
     color: var(--color-accent);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
 }
 
-.info-bloco .btn {
-    margin-top: 15px;
-    display: inline-block;
-}
-
-/* ================================================= */
-/* 4. Responsividade */
-/* ================================================= */
-
-@media (max-width: 900px) {
-    /* História e Imagem empilham */
-    .secao-historia {
-        flex-direction: column;
-    }
-
-    /* MVV empilha no mobile */
-    .secao-mvv {
-        flex-direction: column;
-    }
-    
-    .mvv-card {
-        margin-bottom: 20px;
-    }
-    
-    /* Blocos de Contato/Localização empilham */
-    .contato-info {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .info-bloco {
-        width: 100%;
-    }
-}
-
-.secao-evolucao {
-    padding: 60px 0;
-    text-align: center;
-    background-color: var(--color-dark); /* Fundo sutilmente diferente se for necessário */
-}
-
-.secao-evolucao h2 {
-    font-size: 2.2rem;
-    color: var(--color-light);
-    margin-bottom: 10px;
-}
-
-.subtitulo-evolucao {
+.info-bloco p {
     color: var(--color-text);
-    margin-bottom: 40px;
-    font-size: 1.1rem;
+    font-size: 0.93rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
 }
 
-.fotos-evolucao {
-    display: flex;
-    justify-content: center;
-    gap: 30px; /* Espaço entre as duas fotos */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.info-bloco .btn { border-radius: var(--radius-sm); }
+.info-bloco .btn-secundario { border-radius: var(--radius-sm); }
 
-.foto-bloco {
-    flex: 1; /* Ocupa metade do espaço disponível */
-    background-color: var(--color-secondary);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px var(--color-shadow);
-    transition: transform 0.3s;
-}
-
-.foto-bloco:hover {
-    transform: translateY(-5px);
-}
-
-.foto-bloco h3 {
-    color: var(--color-accent);
-    padding: 15px 10px;
-    font-size: 1.4rem;
-    background-color: var(--color-darker, #111);
-}
-
-.foto-bloco img {
-    width: 100%;
-    /* Altura fixa para que as duas fotos tenham a mesma dimensão visual */
-    height: 350px; 
-    object-fit: cover; 
-    display: block;
-}
-
-/* --- Media Query para Mobile (Empilhar as fotos) --- */
-@media (max-width: 768px) {
-    .fotos-evolucao {
-        flex-direction: column; /* Empilha as fotos verticalmente */
-        gap: 20px;
-        padding: 0 10px;
-    }
-    
-    .foto-bloco img {
-        height: 250px; /* Reduz a altura para telas menores */
-    }
+/* ── Responsividade ──────────────────────────── */
+@media (max-width: 900px) {
+    .secao-historia { flex-direction: column; }
+    .secao-mvv      { flex-direction: column; }
+    .contato-info   { flex-direction: column; align-items: center; }
+    .info-bloco     { max-width: 100%; width: 100%; }
 }

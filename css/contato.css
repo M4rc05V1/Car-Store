@@ -1,63 +1,59 @@
-/* ================================================= */
-/* 1. Layout Principal (Duas Colunas) */
-/* ================================================= */
+/* =============================================
+   CONTATO.CSS
+   ============================================= */
 
+/* ── Header da página ────────────────────────── */
 .contato-header {
     text-align: center;
-    padding: 50px 20px 40px;
+    padding: 3.5rem 1.5rem 2.5rem;
 }
 
 .contato-header h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     color: var(--color-accent);
-    margin-bottom: 10px;
-    font-size: 2.5rem;
+    margin-bottom: 0.6rem;
 }
 
+.contato-header p {
+    color: var(--color-muted);
+    font-size: 1rem;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+/* ── Layout duas colunas ─────────────────────── */
 .contato-container {
-    /* Layout de duas colunas para telas grandes */
     display: flex;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto 60px;
-    padding: 20px;
+    gap: 2.5rem;
+    max-width: 1150px;
+    margin: 0 auto 4rem;
+    padding: 0 1.5rem;
 }
 
-/* Formulário (Coluna Principal) */
+/* ── Formulário ──────────────────────────────── */
 .bloco-formulario {
-    flex: 2; /* Ocupa 2/3 da largura */
-    background-color: var(--color-dark);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px var(--color-shadow);
+    flex: 2;
+    background-color: var(--color-surface);
+    padding: 2.25rem 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
 }
 
 .bloco-formulario h2 {
     color: var(--color-light);
-    margin-bottom: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
     border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 10px;
 }
 
-/* Informações/Mapa (Sidebar) */
-.bloco-informacoes {
-    flex: 1; /* Ocupa 1/3 da largura */
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-
-/* ================================================= */
-/* 2. Estilo do Formulário */
-/* ================================================= */
-
-.form-grupo {
-    margin-bottom: 20px;
-}
+.form-grupo { margin-bottom: 1.25rem; }
 
 .form-grupo label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-light);
 }
@@ -66,87 +62,116 @@
 .bloco-formulario textarea,
 .bloco-formulario select {
     width: 100%;
-    padding: 12px;
-    border: 1px solid var(--color-secondary);
-    border-radius: 6px;
-    background-color: var(--color-secondary);
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-dark);
     color: var(--color-text);
-    font-size: 1rem;
+    font-size: 0.95rem;
+    font-family: var(--font-primary);
+    transition: border-color var(--transition);
 }
 
-.bloco-formulario textarea {
-    resize: vertical;
+.bloco-formulario input:focus,
+.bloco-formulario textarea:focus,
+.bloco-formulario select:focus {
+    border-color: var(--color-accent);
+    outline: none;
 }
+
+.bloco-formulario textarea { resize: vertical; }
 
 .bloco-formulario select {
-    /* Para alinhar o visual do select com os inputs */
-    appearance: none; 
+    appearance: none;
     -webkit-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="%23FFFFFF"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="%23777"><path d="M7 10l5 5 5-5z"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 10px top 50%;
-    background-size: 12px;
+    background-position: right 12px center;
+    cursor: pointer;
 }
 
 .btn-enviar {
     width: 100%;
-    padding: 15px;
-    background-color: var(--color-accent);
-    color: var(--color-light);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: background-color 0.2s;
+    padding: 0.9rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
 }
 
-.btn-enviar:hover {
-    background-color: #e50040;
+/* ── Sidebar de informações ──────────────────── */
+.bloco-informacoes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 260px;
 }
-
-/* ================================================= */
-/* 3. Estilo das Informações e Mapa (Sidebar) */
-/* ================================================= */
 
 .info-detalhe,
 .info-mapa {
-    background-color: var(--color-dark);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px var(--color-shadow);
+    background-color: var(--color-surface);
+    padding: 1.75rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
 }
 
 .info-detalhe h3,
 .info-mapa h3 {
     color: var(--color-accent);
-    margin-bottom: 20px;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.info-detalhe p {
-    margin-bottom: 12px;
-    line-height: 1.6;
+/* Itens de informação */
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.info-item:last-child { margin-bottom: 0; }
+
+.info-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-muted);
+    margin-bottom: 2px;
+}
+
+.info-item p {
+    font-size: 0.9rem;
     color: var(--color-text);
+    line-height: 1.5;
 }
 
-.info-detalhe i {
-    color: var(--color-accent);
-    margin-right: 10px;
+.link-whatsapp {
+    color: #25d366;
+    font-weight: 600;
+    transition: opacity var(--transition);
 }
 
-.info-mapa iframe {
-    border-radius: 8px;
-}
+.link-whatsapp:hover { opacity: 0.75; }
 
+/* Mapa */
+.info-mapa iframe { border-radius: var(--radius-sm); }
 
-/* ================================================= */
-/* 4. Responsividade */
-/* ================================================= */
-
+/* ── Responsividade ──────────────────────────── */
 @media (max-width: 900px) {
-    /* Quebra o layout de duas colunas para uma única coluna */
     .contato-container {
         flex-direction: column;
+        padding: 0 1rem;
     }
 }

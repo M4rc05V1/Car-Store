@@ -1,194 +1,190 @@
-/* ================================================= */
-/* 1. Layout Principal (Desktop) */
-/* ================================================= */
+/* =============================================
+   DETALHES.CSS
+   ============================================= */
 
 .detalhes-header {
-    /* Centraliza o título principal da página */
     text-align: center;
-    padding: 30px 20px 20px;
+    padding: 2.25rem 1.5rem 1.5rem;
 }
 
+.detalhes-header h1 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--color-light);
+    font-weight: 700;
+}
+
+/* ── Layout ──────────────────────────────────── */
 .detalhes-container {
-    /* Cria o layout de duas colunas para telas grandes */
     display: flex;
-    gap: 30px; /* Espaço entre as colunas */
-    max-width: 1200px;
-    margin: 0 auto; /* Centraliza o container */
-    padding: 20px;
+    gap: 2rem;
+    max-width: 1150px;
+    margin: 0 auto 4rem;
+    padding: 0 1.5rem;
 }
 
-/* Coluna Principal (Imagens e Ficha Técnica) - Ocupa 2/3 da largura */
 .veiculo-info-principal {
-    flex: 2; /* Garante que esta coluna ocupe o dobro do espaço da sidebar */
-    min-width: 0; /* Correção para problemas de flexbox com imagens grandes */
+    flex: 2;
+    min-width: 0;
 }
 
-/* Sidebar (Preço e Formulário de Contato) - Ocupa 1/3 da largura */
 .sidebar-contato {
-    flex: 1; 
-    display: flex; /* Transforma a sidebar em um container flexível verticalmente */
+    flex: 1;
+    display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    background-color: var(--color-dark); /* Cor de fundo para destacar a sidebar */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px var(--color-shadow);
-    height: fit-content; /* Faz com que a altura se ajuste ao conteúdo */
-    position: sticky; /* Mantém a sidebar visível ao rolar (opcional) */
-    top: 20px;
+    gap: 1.25rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    height: fit-content;
+    position: sticky;
+    top: 80px;
 }
 
-
-/* ================================================= */
-/* 2. Estilo da Galeria de Imagens */
-/* ================================================= */
-
-.galeria-imagens {
-    margin-bottom: 30px;
-}
+/* ── Galeria ─────────────────────────────────── */
+.galeria-imagens { margin-bottom: 1.75rem; }
 
 .imagem-principal {
     width: 100%;
     height: auto;
-    max-height: 500px;
+    max-height: 480px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border-radius: var(--radius-md);
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--color-border);
 }
 
 .miniaturas {
     display: flex;
-    gap: 10px;
-    overflow-x: auto; /* Permite rolar horizontalmente no mobile, se houver muitas fotos */
-    padding-bottom: 10px; /* Espaço para a barra de rolagem */
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
 }
 
 .miniaturas img {
     width: 80px;
-    height: 60px;
+    height: 58px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     border: 2px solid transparent;
-    transition: border 0.2s;
+    transition: border-color var(--transition);
+    flex-shrink: 0;
 }
 
-.miniaturas img:hover {
-    border-color: var(--color-accent);
-}
+.miniaturas img:hover { border-color: var(--color-accent); }
 
-
-/* ================================================= */
-/* 3. Estilo da Ficha Técnica e Especificações */
-/* ================================================= */
-
+/* ── Ficha técnica ───────────────────────────── */
 .ficha-tecnica {
-    padding: 20px;
-    background-color: var(--color-dark);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px var(--color-shadow);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
 }
 
 .ficha-tecnica h2 {
     color: var(--color-accent);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .especificacoes-lista {
     list-style: none;
-    padding: 0;
 }
 
 .especificacoes-lista li {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--color-secondary);
     display: flex;
     justify-content: space-between;
-}
-
-.especificacoes-lista li span {
-    font-weight: bold;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.92rem;
     color: var(--color-text);
 }
 
+.especificacoes-lista li:last-child { border-bottom: none; }
 
-/* ================================================= */
-/* 4. Estilo da Sidebar (Preço e Contato) */
-/* ================================================= */
+.especificacoes-lista li span {
+    font-weight: 600;
+    color: var(--color-light);
+}
 
+/* ── Sidebar — preço ─────────────────────────── */
 .bloco-preco {
     text-align: center;
-    border-bottom: 1px solid var(--color-secondary);
-    padding-bottom: 15px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .etiqueta-preco {
-    color: var(--color-secondary);
-    margin-bottom: 5px;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-muted);
+    margin-bottom: 0.3rem;
 }
 
 .preco-final {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--color-accent);
+    display: block;
 }
 
+/* ── Sidebar — info rápida ───────────────────── */
 .bloco-info-rapida p {
-    margin: 5px 0;
-    padding: 5px 0;
-    border-bottom: 1px dotted var(--color-secondary);
+    font-size: 0.88rem;
+    color: var(--color-text);
+    padding: 0.45rem 0;
+    border-bottom: 1px dotted var(--color-border);
 }
 
-/* Formulário de Contato/Agendamento */
+.bloco-info-rapida p:last-child { border-bottom: none; }
+
+/* ── Sidebar — formulário ────────────────────── */
 .form-agendamento h3 {
     text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--color-light);
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
 }
 
 .form-agendamento input,
 .form-agendamento textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--color-secondary);
-    border-radius: 5px;
-    background-color: var(--color-secondary);
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-dark);
     color: var(--color-text);
+    font-size: 0.88rem;
+    font-family: var(--font-primary);
+    transition: border-color var(--transition);
 }
 
-.form-agendamento .btn-agendar {
+.form-agendamento input:focus,
+.form-agendamento textarea:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.btn-agendar {
     width: 100%;
-    padding: 12px;
-    background-color: var(--color-accent); /* Usa a cor de destaque (vermelho) */
-    color: var(--color-light);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: background-color 0.2s;
+    padding: 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 700;
 }
 
-.form-agendamento .btn-agendar:hover {
-    background-color: #e50040; /* Um tom mais escuro */
-}
-
-
-/* ================================================= */
-/* 5. Responsividade (Mobile) */
-/* ================================================= */
-
+/* ── Responsividade ──────────────────────────── */
 @media (max-width: 992px) {
-    /* Quebra o layout de duas colunas para uma única coluna no mobile/tablet */
-    .detalhes-container {
-        flex-direction: column;
-    }
-    
-    /* A sidebar de contato não precisa mais ser sticky no mobile */
+    .detalhes-container { flex-direction: column; }
+
     .sidebar-contato {
         position: static;
-        order: -1; /* Coloca a sidebar (preço/contato) antes das imagens no mobile */
+        order: -1;
     }
 }

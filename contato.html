@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | Car Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/contato.css"> 
+    <link rel="stylesheet" href="./css/contato.css">
 </head>
 <body>
+
     <header class="navbar">
         <a href="index.html" class="logo">Car <span>Store</span></a>
-        <button id="menu-toggle">☰</button> 
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
@@ -28,21 +32,23 @@
         </header>
 
         <section class="contato-container">
+
+            <!-- Formulário -->
             <div class="bloco-formulario">
                 <h2>Envie sua Mensagem</h2>
-                <form id="formContato">
+                <form id="formContato" novalidate>
                     <div class="form-grupo">
                         <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
                     </div>
-                    
+
                     <div class="form-grupo">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
                     </div>
 
                     <div class="form-grupo">
-                        <label for="telefone">Telefone (WhatsApp)</label>
+                        <label for="telefone">Telefone / WhatsApp</label>
                         <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required>
                     </div>
 
@@ -50,7 +56,7 @@
                         <label for="assunto">Assunto</label>
                         <select id="assunto" name="assunto">
                             <option value="duvida">Dúvidas Gerais</option>
-                            <option value="visita">Agendar Visita/Test-Drive</option>
+                            <option value="visita">Agendar Visita / Test-Drive</option>
                             <option value="proposta">Proposta em um Veículo</option>
                             <option value="avaliacao">Avaliação do seu Usado</option>
                         </select>
@@ -61,32 +67,85 @@
                         <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem detalhada..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                    <button type="submit" class="btn btn-enviar">Enviar Mensagem</button>
                 </form>
             </div>
-            
+
+            <!-- Informações -->
             <aside class="bloco-informacoes">
                 <div class="info-detalhe">
                     <h3>Dados da Concessionária</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> **Endereço:** Rua Exemplo, 1234 - Centro, Cidade/UF</p>
-                    <p><i class="fas fa-phone"></i> **Telefone:** (11) 3333-4444</p>
-                    <p><i class="fab fa-whatsapp"></i> **WhatsApp:** (11) 98765-4321</p>
-                    <p><i class="fas fa-envelope"></i> **E-mail:** contato@carstore.com</p>
-                    <p><i class="fas fa-clock"></i> **Horário:** Seg - Sex, 8h às 18h | Sáb, 9h às 13h</p>
+
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <strong>Endereço</strong>
+                            <p>Rua Exemplo, 1234 — Centro, Cidade/UF</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <strong>Telefone</strong>
+                            <p>(11) 3333-4444</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">💬</span>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <p>
+                                <a href="https://wa.me/5511987654321" target="_blank" rel="noopener" class="link-whatsapp">
+                                    (11) 98765-4321
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <div>
+                            <strong>E-mail</strong>
+                            <p>contato@carstore.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">🕐</span>
+                        <div>
+                            <strong>Horário</strong>
+                            <p>Seg – Sex: 8h às 18h<br>Sábado: 9h às 13h</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="info-mapa">
                     <h3>Nossa Localização</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150000.0!2d-47.0!3d-23.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQwJzE3LjkiUyA0N8KwMDgnMTguNCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <!--
+                        Substitua o src abaixo pelo embed do Google Maps com o endereço real.
+                        Para obter: maps.google.com → Compartilhar → Incorporar mapa → Copiar HTML
+                    -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150000.0!2d-47.0!3d-23.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQwJzE3LjkiUyA0N8KwMDgnMTguNCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000"
+                        width="100%"
+                        height="260"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Localização da Car Store"
+                    ></iframe>
                 </div>
             </aside>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Car Store - Todos os direitos reservados</p>
+        <p>© 2025 Car Store — Todos os direitos reservados</p>
     </footer>
+
     <script src="./js/global.js"></script>
-    <script src="https://kit.fontawesome.com/SUA_CHAVE_DO_FONT_AWESOME.js" crossorigin="anonymous"></script> 
-    </body>
+</body>
 </html>

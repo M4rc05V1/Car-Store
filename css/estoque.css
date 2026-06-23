@@ -1,15 +1,6 @@
-:root {
-    --color-dark: #121212;
-    --color-light: #f5f5f5;
-    --color-accent: #E50914; /* Cor de Destaque (Vermelho) */
-    --color-secondary: #222222; /* Um cinza um pouco mais claro que o dark */
-    --color-text: #cccccc;
-    --color-text-light: #ffffff;
-    --color-shadow: rgba(0, 0, 0, 0.5); 
-    --font-primary: 'Poppins', sans-serif;
-}
-
-/* --- ESTILOS GLOBAIS DE CONTEÚDO --- */
+/* =============================================
+   ESTOQUE.CSS
+   ============================================= */
 
 .content {
     padding: 0 5%;
@@ -17,214 +8,191 @@
     margin: 0 auto;
 }
 
-.content header {
+.content > header {
     text-align: center;
     padding: 3rem 0 2rem;
-    border-bottom: 1px solid var(--color-secondary);
+    border-bottom: 1px solid var(--color-border);
 }
 
-.content header h1 {
-    font-size: 3rem;
+.content > header h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 0.5rem;
+    color: var(--color-light);
+    margin-bottom: 0.25rem;
 }
 
-/* Ocultar o botão de toggle em desktop, a lógica de mostrar está no global.css */
-#menu-toggle {
-    display: none; 
-}
-
-/* --- FILTROS --- */
-
+/* ── FILTROS ─────────────────────────────────── */
 .filtros-estoque {
-    background-color: var(--color-secondary); 
-    padding: 2rem 3rem;
-    border-radius: 8px;
+    background-color: var(--color-surface);
+    padding: 2rem 2.5rem;
+    border-radius: var(--radius-md);
     margin: 2rem 0;
-    box-shadow: 0 5px 15px var(--color-shadow);
+    border: 1px solid var(--color-border);
 }
 
 .filtros-estoque h2 {
-    font-size: 1.2rem;
-    color: var(--color-light);
-    margin-bottom: 1.5rem;
-    text-align: left;
-    text-transform: none;
-    letter-spacing: normal;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.25rem;
 }
 
 #filtroForm {
     display: flex;
-    gap: 15px; 
+    gap: 12px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-/* Estilo para Select e Input (Formato Metálico/Escuro) - UNIFICADO */
 #filtroForm select,
-#filtroForm input[type="text"] { /* Inclui input[type="text"] usado para máscara de preço */
-    padding: 0.75rem 1rem;
-    border: 1px solid #444;
-    background-color: var(--color-dark); /* Usando --color-dark para consistência */
-    color: var(--color-text-light);
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s; 
-    flex-grow: 1; 
-    max-width: 250px;
+#filtroForm input[type="text"] {
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-family: var(--font-primary);
+    flex: 1;
+    min-width: 140px;
+    max-width: 220px;
+    transition: border-color var(--transition);
 }
 
 #filtroForm select:focus,
 #filtroForm input[type="text"]:focus {
     border-color: var(--color-accent);
-    box-shadow: 0 0 5px var(--color-accent);
     outline: none;
 }
 
-.btn {
-    padding: 0.75rem 2rem;
-    background-color: var(--color-accent);
-    color: var(--color-text-light);
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
+/* Seta customizada no select */
+#filtroForm select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="%23777"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
 }
 
-/* --- GRID DE VEÍCULOS --- */
+#filtroForm .btn {
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 1.75rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
 
+/* Aviso de filtro */
+#aviso-filtro {
+    color: var(--color-accent);
+    background-color: rgba(200, 16, 46, 0.08);
+    border: 1px solid rgba(200, 16, 46, 0.3);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    margin: 1.5rem auto;
+    font-weight: 600;
+    font-size: 0.95rem;
+    max-width: 800px;
+}
+
+/* ── GRID DE VEÍCULOS ────────────────────────── */
 .veiculos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px; 
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.75rem;
+    margin: 2.5rem 0 4rem;
 }
 
 .veiculo {
-    background-color: var(--color-secondary); 
-    border-radius: 10px;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 20px var(--color-shadow); 
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition), border-color var(--transition);
 }
 
 .veiculo:hover {
-    transform: translateY(-8px); 
-    box-shadow: 0 15px 35px var(--color-shadow); 
+    transform: translateY(-6px);
+    border-color: var(--color-accent);
 }
 
-/* 🚨 CORREÇÃO DA IMAGEM: Altura ajustada para proporção widescreen e remoção da rotação */
 .veiculo img {
     width: 100%;
-    height: 180px; /* Altura ajustada para evitar o corte em fotos de carros esportivos */
+    height: 190px;
     object-fit: cover;
-    display: block;
-    border-bottom: 3px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    transition: transform 0.4s ease;
 }
 
+.veiculo:hover img { transform: scale(1.03); }
+
 .veiculo h3 {
-    margin: 1rem 1.5rem 0.3rem;
-    font-size: 1.5rem;
+    margin: 1rem 1.25rem 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-light);
 }
 
 .veiculo-meta {
     display: flex;
     justify-content: space-between;
-    padding: 0 1.5rem;
-    font-size: 0.9rem;
-    color: var(--color-text);
-}
-
-.veiculo-meta span {
-    font-weight: 600;
-    color: var(--color-light);
+    padding: 0 1.25rem;
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    margin-bottom: 0.25rem;
 }
 
 .veiculo p {
-    margin: 0.5rem 1.5rem 1rem;
-    color: var(--color-accent); 
+    margin: 0.25rem 1.25rem 1rem;
+    color: var(--color-accent);
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
 }
 
 .veiculo .btn {
     display: block;
+    margin: 0 1.25rem 1.25rem;
     text-align: center;
-    margin: 1.5rem;
+    border-radius: var(--radius-sm);
+    padding: 0.65rem;
 }
 
-/* --- AVISO DE FILTRO (Exibido pelo JS) --- */
-#aviso-filtro {
-    color: var(--color-accent); 
-    background-color: #1a0f0f; 
-    border: 1px solid var(--color-accent); 
-    border-radius: 8px;
-    text-align: center;
-    padding: 1rem 1.5rem;
-    margin: 2rem auto; 
-    max-width: 900px; 
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-
-/* --- Media Query para Mobile (max-width: 768px) --- */
+/* ── RESPONSIVIDADE ──────────────────────────── */
 @media (max-width: 768px) {
-    
-    .content header h1 {
-        font-size: 2rem;
-    }
-    
-    /* 1. Ajuste do Container de Filtros */
-    .filtros-estoque {
-        padding: 1.5rem 1rem; 
-        margin: 1rem auto;
-    }
 
-    /* 2. Empilhamento Vertical de Filtros */
-    #filtroForm {
-        flex-direction: column; 
-        gap: 15px;
-    }
-    
-    /* 3. Garantir Largura Total */
+    .filtros-estoque { padding: 1.25rem 1rem; }
+
+    #filtroForm { flex-direction: column; gap: 10px; }
+
     #filtroForm select,
     #filtroForm input[type="text"],
-    #filtroForm .btn {
-        width: 100%; 
-        max-width: 100%; 
+    #filtroForm .btn { width: 100%; max-width: 100%; }
+
+    .veiculos-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
 
-    /* 4. Grid de Veículos (2 colunas) */
-    .veiculos-grid {
-        grid-template-columns: 1fr 1fr; 
-        gap: 15px; 
-        padding: 0 10px; 
-    }
-    
-    /* 5. Ajuste da Altura da Imagem no Mobile */
-    .veiculo img {
-        height: 120px; /* Redução para 2 colunas */
-    }
-    
-    /* 6. Ajustar Tipografia dos Cards para Caber */
+    .veiculo img { height: 120px; }
+
     .veiculo h3 {
-        font-size: 1.0rem; 
-        margin: 0.5rem 0.4rem 0.2rem; 
+        font-size: 0.9rem;
+        margin: 0.5rem 0.75rem 0.2rem;
     }
+
     .veiculo p {
-        font-size: 1.1rem;
-        margin: 0.2rem 0.4rem 0.5rem;
+        font-size: 0.95rem;
+        margin: 0.2rem 0.75rem 0.5rem;
     }
-    .veiculo-meta {
-        padding: 0 0.4rem;
-    }
+
+    .veiculo-meta { padding: 0 0.75rem; }
+
     .veiculo .btn {
-        padding: 0.5rem 0.5rem;
-        font-size: 0.75rem;
-        margin: 0.4rem;
+        margin: 0 0.75rem 0.75rem;
+        font-size: 0.78rem;
+        padding: 0.5rem;
     }
 }

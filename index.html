@@ -1,84 +1,210 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Store | Sua Concessionária de Confiança</title>
-  <link rel="stylesheet" href="./css/index.css">
-  <link rel="stylesheet" href="./css/global.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Store | Sua Concessionária de Confiança</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
-  <header class="navbar">
-    <a href="index.html" class="logo">Car <span>Store</span></a>
-    <button id="menu-toggle">☰</button>
-   <nav>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Início</a></li>
-    <li><a href="./estoque.html">Estoque</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-  </ul>
-</nav>
-  </header>
+    <header class="navbar">
+        <a href="index.html" class="logo">Car <span>Store</span></a>
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- 🏎️ Banner Principal -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Encontre o carro dos seus sonhos na <span>Car Store</span></h1>
-      <p>Qualidade, confiança e os melhores preços do mercado.</p>
-      <a href="./estoque.html" class="btn">Ver Estoque</a>
-    </div>
-  </section>
+    <section class="hero">
+        <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="./assets/img/capa.jpg"
+        >
+            <source src="./assets/img/hero.mp4" type="video/mp4">
+            <source src="./assets/img/hero.mp4" type="video/webm">
+        </video>
 
-  <!-- 🚘 Destaques -->
-  <section class="destaques">
-    <h2>Carros em Destaque</h2>
-    <div class="carros-grid">
-      <div class="carro">
-        <img src="./assets/img/Onix.webp" alt="Carro 1">
-        <h3>Chevrolet Onix 2023</h3>
-        <p>A partir de R$ 78.900</p>
-      </div>
-      <div class="carro">
-        <img src="./assets/img/pulse.webp" alt="Carro 2">
-        <h3>Fiat Pulse 2024</h3>
-        <p>A partir de R$ 94.500</p>
-      </div>
-      <div class="carro">
-        <img src="./assets/img/civic.webp" alt="Carro 3">
-        <h3>Honda Civic 2022</h3>
-        <p>A partir de R$ 112.000</p>
-      </div>
-    </div>
-  </section>
+        <div class="hero-overlay"></div>
 
-  <!-- 💬 Depoimentos -->
-  <section class="depoimentos">
-    <h2>O que nossos clientes dizem</h2>
-    <div class="depoimentos-grid">
-      <div class="depoimento">
-        <p>"Excelente atendimento e carros impecáveis!"</p>
-        <h4>- João Ferreira</h4>
-      </div>
-      <div class="depoimento">
-        <p>"Comprei meu carro dos sonhos e fui muito bem atendida."</p>
-        <h4>- Ana Souza</h4>
-      </div>
-      <div class="depoimento">
-        <p>"A Car Store é referência em qualidade aqui na cidade!"</p>
-        <h4>- Carlos Santos</h4>
-      </div>
-    </div>
-  </section>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Bem-vindo à Car Store</p>
+            <h1>Encontre o carro<br><span>dos seus sonhos</span></h1>
+            <p class="hero-sub">Qualidade, confiança e os melhores preços do mercado.</p>
+            <div class="hero-actions">
+                <a href="./estoque.html" class="btn">Ver Estoque</a>
+                <a href="./contato.html" class="btn btn-ghost">Fale Conosco</a>
+            </div>
+        </div>
 
-  <footer>
-    <p>© 2025 Car Store - Todos os direitos reservados</p>
-  </footer>
+        <!-- Indicador de scroll -->
+        <div class="scroll-indicator" aria-hidden="true">
+            <span></span>
+        </div>
+    </section>
 
-  <script src="./js/global.js"></script>
+    <!-- ── ESTATÍSTICAS ── -->
+    <section class="stats-bar">
+        <div class="stat">
+            <strong>+500</strong>
+            <span>Veículos vendidos</span>
+        </div>
+        <div class="stat">
+            <strong>20 anos</strong>
+            <span>De experiência</span>
+        </div>
+        <div class="stat">
+            <strong>98%</strong>
+            <span>Satisfação dos clientes</span>
+        </div>
+        <div class="stat">
+            <strong>100%</strong>
+            <span>Procedência garantida</span>
+        </div>
+    </section>
+
+    <!-- ── DESTAQUES ── -->
+    <section class="destaques">
+        <div class="secao-titulo">
+            <h2>Carros em Destaque</h2>
+            <p>Seleção exclusiva para os que exigem o melhor</p>
+        </div>
+        <div class="carros-grid">
+            <div class="carro">
+                <div class="carro-img-wrap">
+                    <img src="./assets/img/Onix.webp" alt="Chevrolet Onix 2023">
+                    <span class="badge-destaque">Destaque</span>
+                </div>
+                <div class="carro-info">
+                    <h3>Chevrolet Onix 2023</h3>
+                    <p class="carro-preco">A partir de <strong>R$ 78.900</strong></p>
+                    <a href="estoque.html" class="btn btn-card">Ver no Estoque</a>
+                </div>
+            </div>
+            <div class="carro">
+                <div class="carro-img-wrap">
+                    <img src="./assets/img/pulse.webp" alt="Fiat Pulse 2024">
+                    <span class="badge-destaque">Novo</span>
+                </div>
+                <div class="carro-info">
+                    <h3>Fiat Pulse 2024</h3>
+                    <p class="carro-preco">A partir de <strong>R$ 94.500</strong></p>
+                    <a href="estoque.html" class="btn btn-card">Ver no Estoque</a>
+                </div>
+            </div>
+            <div class="carro">
+                <div class="carro-img-wrap">
+                    <img src="./assets/img/civic.webp" alt="Honda Civic 2022">
+                </div>
+                <div class="carro-info">
+                    <h3>Honda Civic 2022</h3>
+                    <p class="carro-preco">A partir de <strong>R$ 112.000</strong></p>
+                    <a href="estoque.html" class="btn btn-card">Ver no Estoque</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top: 2.5rem;">
+            <a href="estoque.html" class="btn">Ver Estoque Completo</a>
+        </div>
+    </section>
+
+    <!-- ── POR QUE ESCOLHER ── -->
+    <section class="diferenciais">
+        <div class="secao-titulo">
+            <h2>Por que escolher a Car Store?</h2>
+        </div>
+        <div class="diferenciais-grid">
+            <div class="diferencial-card">
+                <div class="diferencial-icon">✦</div>
+                <h3>Procedência Garantida</h3>
+                <p>Todos os veículos passam por inspeção rigorosa antes de entrar no estoque.</p>
+            </div>
+            <div class="diferencial-card">
+                <div class="diferencial-icon">◆</div>
+                <h3>Financiamento Facilitado</h3>
+                <p>Trabalhamos com os principais bancos para encontrar as melhores condições.</p>
+            </div>
+            <div class="diferencial-card">
+                <div class="diferencial-icon">●</div>
+                <h3>Avaliação do seu Usado</h3>
+                <p>Avaliamos o seu veículo na hora com transparência e preço justo de mercado.</p>
+            </div>
+            <div class="diferencial-card">
+                <div class="diferencial-icon">★</div>
+                <h3>Atendimento Personalizado</h3>
+                <p>Consultores dedicados para entender o seu perfil e encontrar o carro ideal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DEPOIMENTOS ── -->
+    <section class="depoimentos">
+        <div class="secao-titulo">
+            <h2>O que nossos clientes dizem</h2>
+        </div>
+        <div class="depoimentos-grid">
+            <div class="depoimento">
+                <p class="depoimento-texto">"Excelente atendimento e carros impecáveis! Fui muito bem orientado na escolha do meu veículo."</p>
+                <div class="depoimento-autor">
+                    <div class="autor-avatar">JF</div>
+                    <div>
+                        <strong>João Ferreira</strong>
+                        <span>Cliente desde 2021</span>
+                    </div>
+                </div>
+            </div>
+            <div class="depoimento">
+                <p class="depoimento-texto">"Comprei o carro dos meus sonhos e fui muito bem atendida em todos os detalhes do processo."</p>
+                <div class="depoimento-autor">
+                    <div class="autor-avatar">AS</div>
+                    <div>
+                        <strong>Ana Souza</strong>
+                        <span>Cliente desde 2022</span>
+                    </div>
+                </div>
+            </div>
+            <div class="depoimento">
+                <p class="depoimento-texto">"A Car Store é referência em qualidade aqui na região. Recomendo para todos os meus amigos."</p>
+                <div class="depoimento-autor">
+                    <div class="autor-avatar">CS</div>
+                    <div>
+                        <strong>Carlos Santos</strong>
+                        <span>Cliente desde 2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA FINAL ── -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Pronto para encontrar seu próximo carro?</h2>
+            <p>Visite nossa loja ou entre em contato. Estamos prontos para te atender.</p>
+            <div class="hero-actions">
+                <a href="estoque.html" class="btn">Explorar Estoque</a>
+                <a href="contato.html" class="btn btn-ghost">Agendar Visita</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Car Store — Todos os direitos reservados</p>
+    </footer>
+
+    <script src="./js/global.js"></script>
 </body>
 </html>

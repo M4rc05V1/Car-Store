@@ -1,264 +1,211 @@
-/* ==== CONFIGURAÇÕES GERAIS (GLOBAL) ==== */
-
-/* Definindo variáveis de cores e sombra para uso em todo o projeto */
+/* =============================================
+   VARIÁVEIS GLOBAIS
+   ============================================= */
 :root {
-    --color-accent: #e63946; /* Vermelho/Acento */
-    --color-dark: #111; /* Cor de fundo da Navbar e do menu mobile */
-    --color-secondary: #222; /* Cor para separadores e fundos secundários */
-    --color-text: #f1f1f1;
-    --color-text-light: #ffffff; 
-    --color-shadow: rgba(0, 0, 0, 0.5);
+    --color-bg:        #0a0a0a;
+    --color-dark:      #111111;
+    --color-surface:   #1a1a1a;
+    --color-secondary: #242424;
+    --color-border:    #2e2e2e;
+
+    --color-accent:    #c8102e;     /* Vermelho mais sóbrio e sofisticado */
+    --color-accent-h:  #a50d25;     /* Hover do acento */
+    --color-light:     #f2f2f2;
+    --color-text:      #cccccc;
+    --color-muted:     #777777;
+
+    --color-shadow:    rgba(0, 0, 0, 0.6);
+    --font-primary:    'Poppins', sans-serif;
+
+    --radius-sm:  6px;
+    --radius-md:  10px;
+    --radius-lg:  14px;
+    --transition: 0.25s ease;
 }
 
-/* Base de Acessibilidade e Escala */
-html {
-    font-size: 16px; /* Define 1rem = 16px */
-}
-
-* {
+/* =============================================
+   RESET E BASE
+   ============================================= */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
 }
+
+html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
-    background-color: #0d0d0d;
+    background-color: var(--color-bg);
     color: var(--color-text);
-    line-height: 1.6;
+    font-family: var(--font-primary);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Opção para desabilitar o scroll quando o menu mobile estiver aberto (usado no JS) */
-.no-scroll {
-    overflow: hidden;
-}
+img { display: block; max-width: 100%; }
+a   { text-decoration: none; color: inherit; }
+ul  { list-style: none; }
 
-/* ==== NAVBAR (GLOBAL - Desktop) ==== */
+.no-scroll { overflow: hidden; }
+
+/* =============================================
+   NAVBAR
+   ============================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 3.75rem; 
-    background: var(--color-dark);
+    padding: 1.1rem 3.5rem;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 8px var(--color-shadow);
+    border-bottom: 1px solid var(--color-border);
 }
 
-a.logo { 
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.2rem;
+/* Logo */
+a.logo {
+    font-size: 1.9rem;
     font-weight: 700;
-    color: var(--color-light); 
+    color: var(--color-light);
     letter-spacing: 1px;
-    text-decoration: none; 
 }
 
-a.logo span {
-    color: var(--color-accent);
-    font-weight: 900;
-}
+a.logo span { color: var(--color-accent); }
 
+/* Links de nav */
 .nav-links {
-    list-style: none;
     display: flex;
-    gap: 1.875rem; /* Convertido de 30px */
-}
-
-/* Oculta o botão de toggle por padrão (Desktop) */
-.navbar #menu-toggle {
-    display: none; 
+    gap: 2rem;
 }
 
 .nav-links li a {
-    color: var(--color-text);
-    text-decoration: none;
+    font-size: 0.95rem;
     font-weight: 500;
-    transition: 0.3s;
+    color: var(--color-text);
     position: relative;
-    padding: 0.3125rem 0; /* Convertido de 5px */
+    padding-bottom: 4px;
+    transition: color var(--transition);
 }
 
-/* Efeito underline no hover */
 .nav-links li a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
     background-color: var(--color-accent);
-    transition: width 0.3s ease-out;
-}
-
-.nav-links li a:hover::after,
-.nav-links li a.active::after {
-    width: 100%;
+    transition: width var(--transition);
 }
 
 .nav-links li a:hover,
-.nav-links li a.active {
+.nav-links li a.active { color: var(--color-accent); }
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after { width: 100%; }
+
+/* Botão hamburguer — escondido no desktop */
+.navbar #menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-light);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+    line-height: 1;
+}
+
+/* =============================================
+   BOTÃO PADRÃO
+   ============================================= */
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    background-color: var(--color-accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--color-accent-h);
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    border: 2px solid var(--color-accent);
     color: var(--color-accent);
 }
 
-/* ==== FOOTER (GLOBAL) ==== */
-footer {
-    background: #0b0b0b;
-    text-align: center;
-    padding: 1.5625rem; /* Convertido de 25px */
-    color: #999;
-    font-size: 0.9rem;
-    /* Uso da variável para consistência */
-    border-top: 1px solid var(--color-secondary); 
+.btn-secundario:hover {
+    background-color: var(--color-accent);
+    color: #fff;
 }
 
-/* ==== RESPONSIVIDADE GLOBAL (Mobile Menu - max 900px) ==== */
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    background: #080808;
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* =============================================
+   RESPONSIVIDADE — MOBILE MENU
+   ============================================= */
 @media (max-width: 900px) {
 
-    /* 1. Ajuste do Header para Mobile */
     .navbar {
-        flex-direction: row; 
-        padding: 0.9375rem 1.25rem; /* Convertido de 15px 20px */
+        padding: 0.9rem 1.25rem;
+        flex-direction: row;
     }
 
-    /* 2. Mostrar o botão do menu hamburguer */
-    .navbar #menu-toggle {
-        display: block;
-        font-size: 1.8rem;
-        background: none;
-        border: none;
-        color: var(--color-text);
-        cursor: pointer;
-        z-index: 1001;
-    }
+    .navbar #menu-toggle { display: block; }
 
-    /* 3. Estilo do Menu Lateral (Escondido por Padrão) */
     .nav-links {
-        display: none; 
+        display: none;
         flex-direction: column;
-        list-style: none;
+        gap: 0;
         position: fixed;
-        top: 0;
-        right: 0;
-        width: 70%; 
+        top: 0; right: 0;
+        width: 72%;
         max-width: 300px;
         height: 100vh;
-        background-color: #0b0b0b; 
-        padding: 3.75rem 1.25rem; /* Convertido de 60px 20px */
-        box-shadow: -5px 0 15px var(--color-shadow);
+        background-color: #0d0d0d;
+        padding: 5rem 1.5rem 2rem;
+        box-shadow: -6px 0 24px var(--color-shadow);
         z-index: 999;
-        transform: translateX(100%); 
+        transform: translateX(100%);
         transition: transform 0.3s ease-out;
+        border-left: 1px solid var(--color-border);
     }
-    
-    /* 4. Classe que será acionada pelo JavaScript para abrir o menu */
+
     .nav-links.open {
         display: flex;
         transform: translateX(0);
     }
 
     .nav-links li {
-        margin: 0.625rem 0;
-        padding: 0.625rem 0;
-        border-bottom: 1px solid var(--color-secondary);
-        text-align: left;
-    }
-    
-    .nav-links li:last-child {
-        border-bottom: none;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--color-border);
     }
 
+    .nav-links li:last-child { border-bottom: none; }
+
     .nav-links li a {
-        font-size: 1.2rem;
-        width: 100%;
+        font-size: 1.15rem;
         display: block;
-        padding: 0;
-    }
-    
-    /* ==== RESPONSIVIDADE DE CONTEÚDO (Geral) ==== */
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .destaques h2,
-    .depoimentos h2 {
-        font-size: 1.6rem;
     }
 }
-/* --- Global.css --- */
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: var(--color-dark); /* Fundo da sua navbar */
-    box-shadow: 0 2px 10px var(--color-shadow);
-}
-
-.nav-links {
-    display: flex; /* Links em linha no desktop */
-    list-style: none;
-    gap: 25px;
-}
-
-/* O botão do menu hamburguer deve estar escondido no desktop */
-#menu-toggle {
-    display: none; 
-    cursor: pointer;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: var(--color-light);
-}
-
-@media (max-width: 768px) {
-    
-  .navbar #menu-toggle {
-        display: block; 
-    }
-    
-    .nav-links {
-        position: fixed; 
-        top: 0;
-        right: 0;
-        width: 70%;
-        height: 100vh; 
-        background-color: var(--color-darker, #111);       
-        display: flex;
-        flex-direction: column; 
-        align-items: flex-start;
-        padding: 80px 30px 20px;
-        transform: translateX(100%); 
-        transition: transform 0.3s ease-out; 
-        box-shadow: -5px 0 15px var(--color-shadow); 
-        z-index: 1000;
-    }
-
-    .nav-links.open {
-        transform: translateX(0); /* Desliza para dentro da tela */
-    }
-    
-    .nav-links li {
-        width: 100%;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        /* Adicione uma linha divisória para separar os links, se quiser */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    }
-    
-    .nav-links li a {
-        font-size: 1.1rem;
-        padding: 10px 0; 
-    }
-    
-    .nav-links li a::after {
-        content: none;
-    }
-}
-    
-    body.no-scroll {
-        overflow: hidden; /* Impede a rolagem do fundo quando o menu está aberto */
-    }
-
